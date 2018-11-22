@@ -24,7 +24,7 @@ const code = '!';
 client.on('message',async message => {
     if(message.content.startsWith(code + "envey")) {
   if(!message.channel.guild) return message.reply(' ');
-    let rank = message.guild.member(message.author).roles.find('name', 'enveyjs');
+    let rank = message.guild.member(message.author).roles.find('name', 'Support');
     if (!rank) return message.channel.send(':octagonal_sign: **| يجب ان تمتلك رتبة  Support لأستخدام هذا الأمر.**');
     let jscodes = message.guild.channels.find(`name`, "codes-discord-js");
     if(!jscodes) return message.channel.send(":x:لم اجد الروم الخاص بنشر الاكواد");
