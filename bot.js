@@ -254,7 +254,7 @@ let mention = message.mentions.members.first();
 
 let Room = client.channels.get('515230934014885892');
 
-if(message.content.startsWith(prefix + "رفض")) {
+if(message.content.startsWith(prefix + "rafd")) {
 
 if(message.guild.id !== '515233328836640799') return;
 
@@ -281,7 +281,7 @@ let mention = message.mentions.members.first();
 
 let Room = client.channels.get('515230934014885892');
 
-if(message.content.startsWith(prefix + "قبول")) {
+if(message.content.startsWith(prefix + "accept")) {
 
 if(message.guild.id !== '515233328836640799') return;
 
@@ -322,4 +322,4 @@ client.on("guildMemberAdd", async member => {
   }
 });
 
-client.login(process.env.token)
+client.login(process.env.BOT_TOKEN)
