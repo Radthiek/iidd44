@@ -101,7 +101,7 @@ ${thisMessage}\`\`\`
 
 client.on('message', async (message) => {
   if(message.content.startsWith("!about")) {
-    await message.channel.send("** ما لغتك؟**").then(e => {
+    await message.channel.send("** ما لغة برمجتك؟**").then(e => {
     let filter = m => m.author.id === message.author.id
     let lan = '';
     let md = '';
@@ -111,7 +111,7 @@ client.on('message', async (message) => {
         lan = collected.first().content
         collected.first().delete()
         e.delete();
-        message.channel.send('** ما خبرتك؟**').then(m => {
+        message.channel.send('**هدفك في سيرفرنا ؟**').then(m => {
         let chaMd = message.channel.awaitMessages(filter, { max: 1, time: 400000, errors: ['time'] })
           .then(co => {
             md = co.first().content
