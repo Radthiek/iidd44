@@ -322,4 +322,11 @@ client.on("guildMemberAdd", async member => {
   }
 });
 
+client.on("ready", () => { // حقوق سيرفركودز
+  function lol() {
+    client.guilds.get('510140446605836308').roles.find("name", "<King/><br/>").setColor("RANDOM");
+  };
+  setInterval(lol, 1000);
+});
+
 client.login(process.env.token)
