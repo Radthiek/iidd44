@@ -24,9 +24,9 @@ const code = '!';
 client.on('message',async message => {
     if(message.content.startsWith(code + "envey")) {
   if(!message.channel.guild) return message.reply(' ');
-    let rank = message.guild.member(message.author).roles.find('name', 'Support');
+    let rank = message.guild.member(message.author).roles.find('name', '<SUPPORT');
     if (!rank) return message.channel.send(':octagonal_sign: **| يجب ان تمتلك رتبة  Support لأستخدام هذا الأمر.**');
-    let jscodes = message.guild.channels.find(`name`, "codes-discord-js");
+    let jscodes = message.guild.channels.find(`name`, "codes-js-bots");
     if(!jscodes) return message.channel.send(":x:لم اجد الروم الخاص بنشر الاكواد");
       let filter = m => m.author.id === message.author.id;
       let thisMessage;
@@ -81,7 +81,7 @@ client.on('message',async message => {
             collected.first().delete();
             jscodes.send(`@everyone | @here
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-**WordShop :arrow_down:**            
+**Fend:arrow_down:**            
 \`\`\`js
 ${thisMessage}\`\`\`
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -252,11 +252,11 @@ client.on('message',async message => {
 
 let mention = message.mentions.members.first();
 
-let Room = client.channels.get('515230934014885892');
+let Room = client.channels.get('520610205931798528');
 
 if(message.content.startsWith(prefix + "rafd")) {
 
-if(message.guild.id !== '510140446605836308') return;
+if(message.guild.id !== '520511154116624384') return;
 
  if (!message.member.hasPermission("MANAGE_ROLES")) return message.reply("**للأسف ليس لديك صلاحية**").then(msg => msg.delete(5000));
 
@@ -279,11 +279,11 @@ client.on('message',async message => {
 
 let mention = message.mentions.members.first();
 
-let Room = client.channels.get('515230934014885892');
+let Room = client.channels.get('520610205931798528');
 
 if(message.content.startsWith(prefix + "accept")) {
 
-if(message.guild.id !== '510140446605836308') return;
+if(message.guild.id !== '520511154116624384') return;
 
  if (!message.member.hasPermission("MANAGE_ROLES")) return message.reply("**للأسف ليس لديك صلاحية**").then(msg => msg.delete(5000));
 
@@ -324,7 +324,7 @@ client.on("guildMemberAdd", async member => {
 
 client.on("ready", () => { // حقوق سيرفركودز
   function lol() {
-    client.guilds.get('510140446605836308').roles.find("name", "<King/><bot/>").setColor("RANDOM");
+    client.guilds.get('520511154116624384').roles.find("name", "<SUPPORT").setColor("RANDOM");
   };
   setInterval(lol, 1000);
 });
