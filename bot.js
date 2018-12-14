@@ -217,7 +217,7 @@ if(!mention) return message.reply("منشن شخص");
 
 Room.send(`
 **» العضو :** ${mention}
-[ ✅ ] :: لقد تم قبول العضو واعطائه رتبة سبورت`);
+[ ✅ ] :: لقد تم قبول العضو واعطائه رتبة`);
 
 }
 
@@ -240,8 +240,8 @@ client.on("guildMemberAdd", async member => {
       moment = require("moment"),
       date = moment.duration(new Date() - member.user.createdAt).format("d");
 
-  if(date < 7) {
-    member.ban("Member account age is lower than 7 days.")
+  if(date < 3) {
+    member.ban("Member account age is lower than 3 days.")
   }
 });
 
