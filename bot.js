@@ -21,87 +21,10 @@ client.on('ready', () => {
 
 const code = '!';
 
-client.on('message',async message => {
-    if(message.content.startsWith(code + "envey")) {
-  if(!message.channel.guild) return message.reply(' ');
-    let rank = message.guild.member(message.author).roles.find('name', '<SUPPORT');
-    if (!rank) return message.channel.send(':octagonal_sign: **| يجب ان تمتلك رتبة  Support لأستخدام هذا الأمر.**');
-    let jscodes = message.guild.channels.find(`name`, "codes-js-bots");
-    if(!jscodes) return message.channel.send(":x:لم اجد الروم الخاص بنشر الاكواد");
-      let filter = m => m.author.id === message.author.id;
-      let thisMessage;
-      let thisFalse;
-      message.channel.send(':pencil: **| من فضلك اكتب الكود الأن... :pencil2: **').then(msg => {
-  
-      message.channel.awaitMessages(filter, {
-        max: 1,
-        time: 90000,
-        errors: ['time']
-      })
-      .then(collected => {
-        collected.first().delete();
-        thisMessage = collected.first().content;
-        let boi;
-        msg.edit(':scroll: **| من فضلك اكتب وصف الكود الأن... :pencil2: **').then(msg => {
-  
-            message.channel.awaitMessages(filter, {
-              max: 1,
-              time: 90000,
-              errors: ['time']
-            })
-            .then(collected => {
-              collected.first().delete();
-              boi = collected.first().content;
-              let boi2;
-              msg.edit(':man_in_tuxedo: **| من فضلك اكتب من صنع هذا الكود الأن... :pencil2: **').then(msg => {
-  
-                message.channel.awaitMessages(filter, {
-                  max: 1,
-                  time: 90000,
-                  errors: ['time']
-                })
-                .then(collected => {
-                  collected.first().delete();
-                boi2 = collected.first().content;
-        msg.edit(':shield: **| [ هل انت متأكد من نشر الكود؟ | [ نعم ] او [ لا**');
-   message.channel.awaitMessages(response => response.content === 'نعم' || 'لا' && filter,{
-          max: 1,
-          time: 90000,
-          errors: ['time']
-        })
-        .then(collected => {
-          if(collected.first().content === 'لا') {
-            msg.delete();
-            message.delete();
-            thisFalse = false;
-          }
-          if(collected.first().content === 'نعم') {
-            if(thisFalse === false) return;
-            msg.edit(':dove: **| Done :white_check_mark:, تم بنجاح نشر كودك في روم الاكواد**');
-            collected.first().delete();
-            jscodes.send(`@everyone | @here
-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-**Fend:arrow_down:**            
-\`\`\`js
-${thisMessage}\`\`\`
-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-**وصف الكود**: ${boi}
-**تم النشر بواسطة**: ${message.author}
-**المصدر / الشخص الذي صنع الكود**: ${boi2}`); 
-                   }
-                 });
-               });
-             });
-           });
-         });
-       });
-     });
-   }
-});
 
 client.on('message', async (message) => {
   if(message.content.startsWith("!about")) {
-    await message.channel.send("** ما لغة برمجتك؟**").then(e => {
+    await message.channel.send("** ما لغة التي تعرفها ؟**").then(e => {
     let filter = m => m.author.id === message.author.id
     let lan = '';
     let md = '';
@@ -117,7 +40,7 @@ client.on('message', async (message) => {
             md = co.first().content
             co.first().delete()
             m.delete();
-            message.channel.send('**وش الفرق بين const و var**').then(ms => {
+            message.channel.send('**موهبتك ؟**').then(ms => {
             let br = message.channel.awaitMessages(filter, { max: 1, time: 400000, errors: ['time'] })
               .then(col => {
                 br = col.first().content
@@ -127,12 +50,12 @@ client.on('message', async (message) => {
                 setTimeout(() => { 
                   b.edit(`**تم التقديم وسيتم الرد فـ اقرب وقت**`)
                 },2000);
-                var gg = message.guild.channels.find('name', 'قبول')
+                var gg = message.guild.channels.find('name', 'show')
                 if(!gg) return;
                 if(gg) {
                   gg.send({
                       embed : new Discord.RichEmbed()
-                      .setDescription(`** اللغة :question: : \n ${lan}\nالخبرة :link: :\n ${md} \nالفرق بين const,var :question: :\n ${br} \nتم التقديم بواسطة : <@${message.author.id}> **`)
+                      .setDescription(`** اللغة :question: : \n ${lan}\nالهدف :link: :\n ${md} \nموهبه :question: :\n ${br} \nتم التقديم بواسطة : <@${message.author.id}> **`)
                       .setFooter(`WordShop`)
                       .setTimestamp()
                     });
@@ -322,11 +245,5 @@ client.on("guildMemberAdd", async member => {
   }
 });
 
-client.on("ready", () => { // حقوق سيرفركودز
-  function lol() {
-    client.guilds.get('520511154116624384').roles.find("name", "<SUPPORT").setColor("RANDOM");
-  };
-  setInterval(lol, 1000);
-});
 
 client.login(process.env.token)
