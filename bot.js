@@ -24,7 +24,7 @@ const code = '!';
 
 client.on('message', async (message) => {
   if(message.content.startsWith("!about")) {
-    await message.channel.send("** ما لغة التي تعرفها ؟**").then(e => {
+    await message.channel.send("**من وين  انت ؟**").then(e => {
     let filter = m => m.author.id === message.author.id
     let lan = '';
     let md = '';
@@ -55,7 +55,7 @@ client.on('message', async (message) => {
                 if(gg) {
                   gg.send({
                       embed : new Discord.RichEmbed()
-                      .setDescription(`** اللغة :question: : \n ${lan}\nالهدف :link: :\n ${md} \nموهبه :question: :\n ${br} \nتم التقديم بواسطة : <@${message.author.id}> **`)
+                      .setDescription(`** من :question: : \n ${lan}\nالهدف :link: :\n ${md} \nموهبه :question: :\n ${br} \nتم التقديم بواسطة : <@${message.author.id}> **`)
                       .setFooter(`WordShop`)
                       .setTimestamp()
                     });
@@ -175,11 +175,11 @@ client.on('message',async message => {
 
 let mention = message.mentions.members.first();
 
-let Room = client.channels.get('520610205931798528');
+let Room = client.channels.get('595951748540006431');
 
 if(message.content.startsWith(prefix + "rafd")) {
 
-if(message.guild.id !== '520511154116624384') return;
+if(message.guild.id !== '452829244150644738') return;
 
  if (!message.member.hasPermission("MANAGE_ROLES")) return message.reply("**للأسف ليس لديك صلاحية**").then(msg => msg.delete(5000));
 
@@ -202,11 +202,11 @@ client.on('message',async message => {
 
 let mention = message.mentions.members.first();
 
-let Room = client.channels.get('520610205931798528');
+let Room = client.channels.get('595951748540006431');
 
 if(message.content.startsWith(prefix + "accept")) {
 
-if(message.guild.id !== '520511154116624384') return;
+if(message.guild.id !== '452829244150644738') return;
 
  if (!message.member.hasPermission("MANAGE_ROLES")) return message.reply("**للأسف ليس لديك صلاحية**").then(msg => msg.delete(5000));
 
@@ -217,7 +217,7 @@ if(!mention) return message.reply("منشن شخص");
 
 Room.send(`
 **» العضو :** ${mention}
-[ ✅ ] :: لقد تم قبول العضو واعطائه رتبة`);
+[ ✅ ] :: لقد تم قبول واعطائه برميم`);
 
 }
 
