@@ -16,7 +16,7 @@ client.on('ready', () => {
     console.log(`Users! [ " ${client.users.size} " ]`);
     console.log('')
     console.log('╚[════════════════════════════════════]╝')
-    client.user.setActivity("!envey",{type: 'WATCHING'}); //Heeeeeemo Heeeeeeeeeemo 
+    client.user.setActivity("!about",{type: 'WATCHING'}); //Heeeeeemo Heeeeeeeeeemo 
 });
 
 const code = '!';
